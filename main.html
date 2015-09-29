@@ -1,0 +1,40 @@
+<head>
+<link rel="stylesheet" type="text/css" href="styling.css">
+<script type="text/javascript" src="./GameObject.js">  </script>
+<script type="text/javascript" src="./Body.js">  </script>
+<script type="text/javascript" src="./Location.js">  </script>
+<script type="text/javascript" src="./GameActions.js">  </script>
+<script type="text/javascript" src="./Display.js">  </script>
+<script type="text/javascript" src="./Player.js">  </script>
+<script type="text/javascript" src="./NPC.js">  </script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<div id="game-container" class="game-container">
+
+	<div id ="game-info" class="game-info"></div>
+
+	<div id="command-input-container" class="command-input-container">
+		<input id="command-input" class="command-input" type="text" placeholder="Enter Command"/>
+	</div>
+	
+</div>
+
+<script>
+//var player = new Player();
+//var currentLocation = generateGunStore();
+//player.currentLocation = currentLocation;
+
+startGame();
+//drawRoomDescription(player.currentLocation.getDescription());
+
+$("#command-input").keyup(function (e) {
+	var command = '';
+    if (e.keyCode == 13) {
+        command = $('#command-input').val();
+        $('#command-input').val('');
+        handleCommand(command);
+    }
+});
+
+</script>

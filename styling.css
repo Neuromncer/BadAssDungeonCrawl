@@ -1,0 +1,105 @@
+body {
+	background-color: rgb(0,0,0);
+	color:rgb(255,255,255);
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+textarea.game-title{
+	margin: 0px;
+ 	width: 1100;
+  	height: 110;
+ 	text-align: center;
+ 	font-size: 20;
+ 	background-color: transparent;
+ 	color: white;
+	border: 0px;
+  	resize: none;
+  	overflow: hidden;
+}
+
+div.game-window {
+	width: 60%;
+	height: 60%;
+	margin: 0px auto;
+	overflow-y:auto;
+	margin-top: 150px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=81)";
+	filter: alpha(opacity=81);
+	-moz-opacity: 0.81;
+	-khtml-opacity: 0.81;
+	opacity: 0.81;
+	/*border: 4px red solid;*/
+
+	background-color: #000000;
+	color:rgb(255,255,255);
+	padding: 22px;
+
+	font-size: inherit;
+	font-weight: inherit;
+	font-family: inherit;
+	font-style: inherit;
+	text-decoration: inherit;
+}
+
+.window-title {
+	color: white;
+	margin: 0px auto;
+	text-align: center;
+	width: 652px;
+	background-color: red;
+	-moz-border-radius-topright:5px;
+    -moz-border-radius-topleft:5px;
+    -webkit-border-top-right-radius:5px;
+    -webkit-border-top-left-radius:5px;
+        border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    margin-top:10px;
+}
+
+.command-input-container
+{
+	margin:0px auto;
+	text-align: center;
+	padding-top: 0px;
+	padding-left:22px;
+	padding-right:22px;
+	width: 600px;
+	border: 4px #490808 solid;
+}
+
+
+/*****************/
+/* INPUT CLASSES */
+/*****************/
+div.command-input {
+  text-align: center;
+  background-color: transparent;
+  height: 30px;
+  width: 60%;
+  margin: auto;
+}
+
+@-webkit-keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+}
+
+@-moz-keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: black }
+}
+
+div.input-cursor {
+	display:inline;
+    width:20px;
+    height:30px;
+    border-left:15px solid black;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 3s blink step-end infinite;
+}
+
+div.event-window {
+	text-align:center;
+	margin-top: 10px;
+	margin-bottom:10px;
+}

@@ -1,0 +1,10 @@
+
+//This class will handle all in game functions from picking up items, equipping items, moving, etc
+
+var GameFunc = {
+
+	move:function()
+	{
+	
+	}
+}

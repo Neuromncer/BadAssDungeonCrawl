@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styling.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="./game.js">  </script>
+		<script type="text/javascript" src="./game_functions.js">  </script>
+		<script type="text/javascript" src="./console.js">  </script>
+		<script type="text/javascript" src="./input_handler.js">  </script>
+		<script type="text/javascript" src="./main_menu.js">  </script>
+		<script type="text/javascript" src="./new_game.js">  </script>
+		<script type="text/javascript" src="./player.js">  </script>
+		<script type="text/javascript" src="./trait.js">  </script>
+		<script type="text/javascript" src="./names.js">  </script>
+		<script type="text/javascript" src="./location.js">  </script>
+		<script type="text/javascript" src="./room.js">  </script>
+		<script type="text/javascript" src="./creature.js">  </script>
+		<script type="text/javascript" src="./globals.js">  </script>
+	</head>
+<body>
+<textarea id="game-title-holder" style="display:none;">
+   ___  ___   ___  ___   ________  ___  __  ___  _______________  _  __  ________  ___ _      ____ 
+  / _ )/ _ | / _ \/ _ | / __/ __/ / _ \/ / / / |/ / ___/ __/ __ \/ |/ / / ___/ _ \/ _ | | /| / / / 
+ / _  / __ |/ // / __ |_\ \_\ \  / // / /_/ /    / (_ / _// /_/ /    / / /__/ , _/ __ | |/ |/ / /__
+/____/_/ |_/____/_/ |_/___/___/ /____/\____/_/|_/\___/___/\____/_/|_/  \___/_/|_/_/ |_|__/|__/____/
+
+</textarea>
+
+<div id="game-container" class="game-container">
+
+	<div id ="game-window" class="game-window"></div>
+	<div id="command-input" class="command-input"><div id="cursor" class="input-cursor"></div></div>
+	<div id ="event-window" class="event-window"></div>
+
+</div>
+</body>
+</html>
+
+<script>MainMenu.start();</script>
