@@ -15,8 +15,7 @@ var MainMenu =
 
 	input:function(command)
 	{
-		if(command == '1')
-		{
+		if (command == '1') {
 			NewGame.start();
 		}
 	}

@@ -20,12 +20,9 @@ function Location()
 	{
 		this.rooms = new Array();
 
-		if(type == 'town')
-		{
+		if (type == 'town') {
 			this.generateTown();
-		}
-		else if(type == 'dungeon')
-		{
+		} else if (type == 'dungeon') {
 			this.generateDungeon();
 		}
 	};
@@ -70,15 +67,13 @@ function Location()
 	{
 		var nameStr = '';
 
-		if(irand(0, 100) <= 90)
-		{
+		if (irand(0, 100) <= 90) {
 			nameStr += dungeonNameAdj[irand(0, dungeonNameAdj.length-1)] + ' ';
 		}
 
 		nameStr += dungeonTypeNames[irand(0, dungeonTypeNames.length - 1)] + ' of ';
 
-		if(irand(0, 100) <= 40)
-		{
+		if (irand(0, 100) <= 40) {
 			nameStr += dungeonNameAdj[irand(0, dungeonNameAdj.length-1)] + ' ';
 		}
 
@@ -93,46 +88,36 @@ function Location()
 		var idCount = 0;
 
 		//First build some basic rooms
-		for(var i = 0; i < numOfRooms; i++)
-		{
+		for (var i = 0; i < numOfRooms; i++) {
 			idCount += 1;
 			room = new Room();
 			room.generate(idCount);
 
-			if(this.rooms.length > 0 )
-			{
+			if (this.rooms.length > 0 ) {
 				//pick a random room from the list that has fewer than 3 connections and connect this room to it
-				for(var j = this.rooms.length - 1; j > 0; j--)
-				{
-					if(this.rooms[j].connections.length < 3)
-					{
+				for (var j = this.rooms.length - 1; j > 0; j--) {
+
+					if (this.rooms[j].connections.length < 3) {
 						this.rooms[j].connections.push(room.id); //connect the rooms to each other
 						room.connections.push(this.rooms[j].id); //connect the rooms to each other
 						break;
-
 					}
-
 				}
-
 			}
 
 			//Pick a random number of rooms to connect to this room
 			var conRoomCount = irand(1, 3);
 			numOfRooms -= conRoomCount; //Subtract these from the main loop since these are being added in here.
-			for(var k = 0; k < conRoomCount; k++)
-			{
+			for (var k = 0; k < conRoomCount; k++) {
 				idCount += 1;
 				conRoom = new Room();
 				conRoom.generate(idCount);
 				conRoom.connections.push(room.id); //connect the rooms to each other
 				room.connections.push(idCount);	   //connect the rooms to each other
 				this.rooms[conRoom.id.toString()] = conRoom;
-				
 			}
-
 			this.rooms[room.id.toString()] = room;
 		}
-
 	}
 
 	this.generateQuest = function()
@@ -143,9 +128,7 @@ function Location()
 	this.describe = function()
 	{
 		var ds = '';
-
 		ds += '<div style="text-align:center; padding-bottom:20px;"><span style="color:#67FF00"> ' + this.name + '</span> </div>';
-
 		return ds;
 	}
 }

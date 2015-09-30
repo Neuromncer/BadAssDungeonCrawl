@@ -1,48 +1,60 @@
 
-
 var Game = {
 
 	start:function()
 	{
 		//Build Town
 		this.draw();
-
 	},
 
 	input:function(command)
 	{
 		//Master input for all game related actions
-		var commRegex = /^(go|move)\s+.*/gi;
+		var commRegex = /^[\S]+/gi;
 		var match = commRegex.exec(command.trim());
 
-		if(match != null)
-		{
-			switch(match[1])
-			{
+		if (match != null) {
+
+			switch(match[0]) {
 				case 'GO':
 				case 'MOVE':
 					GameFunc.move(command);
 					this.draw();
 					break;
+				case 'HELP':
+					GameFunc.help();
+					this.draw();
+					break;
+				case 'STATUS':
+					this.draw(GameFunc.status());
+					break;
+				case 'USE':
+					GameFunc.use(command);
+					this.draw();
+					break;
 				default:
+					this.draw();
+					g_EventDisplay.draw('<span style="color:red">Invalid command...</span>');
 					break; 
 			}
-		}
-		else
-		{
-			g_EventDisplay.draw('<span style="color:red">Invalid command...</span>');
+		} else {
+			this.draw();
 		}
 	},
 
-
-	draw:function()
+	//optional html to draw instead of describing the room
+	draw:function(html)
 	{
-		var windowHtml = '';
-		windowHtml = g_Location.describe();
+		if (html !== undefined) {
+			windowHtml = html;
 
-		windowHtml += g_Player.currentRoom.describe(); //Get description of current location
+		} else {
+			var windowHtml = '';
+			windowHtml = g_Location.describe();
+			//Get description of current location
+			windowHtml += g_Player.currentRoom.describe();
+		}
 
-		//windowHtml += g_Player.currentRoom.describe();
 		jQuery('#game-window').html(windowHtml);
 		jQuery('#game-window').hide();
 		jQuery('#game-window').fadeIn(600);
